@@ -7,13 +7,17 @@ import android.location.Location
 
 class LocationData(val latitude: Double,
                    val longitude: Double,
-                   val altitude: Double
+                   val altitude: Double,
+                   val horizontalAccuracy: Float,
+                   val verticalAccuracy: Float
 ) {
     companion object {
         fun from(location: Location) = LocationData(
                 latitude = location.latitude,
                 longitude = location.longitude,
-                altitude = location.altitude
+                altitude = location.altitude,
+                horizontalAccuracy = location.getAccuracy(),
+                verticalAccuracy = location.getVerticalAccuracyMeters()
         )
     }
 }

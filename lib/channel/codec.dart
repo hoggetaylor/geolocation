@@ -87,10 +87,13 @@ class _JsonCodec {
             : null,
       );
 
-  static Location locationFromJson(Map<String, dynamic> json) => new Location._(
-        _Codec.parseJsonNumber(json['latitude']),
-        _Codec.parseJsonNumber(json['longitude']),
-        _Codec.parseJsonNumber(json['altitude']),
+  static Location locationFromJson(Map<String, dynamic> json) =>
+      new Location(
+        latitude: json['latitude'],
+        longitude: json['longitude'],
+        altitude: json['altitude'],
+        horizontalAccuracy: json['horizontalAccuracy'],
+        verticalAccuracy: json['verticalAccuracy']
       );
 
   static Map<String, dynamic> locationUpdatesRequestToJson(

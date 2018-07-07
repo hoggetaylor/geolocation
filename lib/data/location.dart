@@ -4,7 +4,13 @@
 part of geolocation;
 
 class Location {
-  Location._(this.latitude, this.longitude, this.altitude);
+  const Location({
+    @required this.latitude,
+    @required this.longitude,
+    @required this.altitude,
+    @required this.horizontalAccuracy,
+    @required this.verticalAccuracy
+  });
 
   /// Latitude in degrees
   final double latitude;
@@ -14,6 +20,12 @@ class Location {
 
   /// Altitude measured in meters.
   final double altitude;
+
+  /// Horizontal accuracy of this location measured in meters.
+  final double horizontalAccuracy;
+
+  /// Vertical accuracy of this location measured in meters.
+  final double verticalAccuracy;
 
   @override
   String toString() {
